@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Photo Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 AI Photo Editor</h1>
+            <p>Редактируйте фото с помощью AI промтов</p>
+        </div>
+
+        <div class="editor">
+            <!-- Upload Section -->
+            <div class="section upload-section">
+                <h2>📸 Загрузить фото</h2>
+                <div class="upload-area" id="uploadArea">
+                    <p>Перетащите изображение сюда или нажмите для выбора</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="section preview-section" id="previewSection" style="display: none;">
+                <h2>👀 Предпросмотр</h2>
+                <div class="image-preview">
+                    <div class="image-wrapper">
+                        <h3>Исходное изображение</h3>
+                        <img id="originalImage" src="" alt="Original">
+                    </div>
+                    <div class="image-wrapper">
+                        <h3>Результат</h3>
+                        <img id="editedImage" src="" alt="Edited">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Section -->
+            <div class="section edit-section" id="editSection" style="display: none;">
+                <h2>✏️ Редактирование</h2>
+                
+                <!-- Quick Edits -->
+                <div class="quick-edits">
+                    <h3>Быстрые фильтры:</h3>
+                    <div class="buttons-grid">
+                        <button class="edit-btn" data-prompt="increase brightness">🌞 Яркость</button>
+                        <button class="edit-btn" data-prompt="increase contrast">⚡ Контраст</button>
+                        <button class="edit-btn" data-prompt="blur effect">🌫️ Размытие</button>
+                        <button class="edit-btn" data-prompt="sharpen image">🔪 Резкость</button>
+                        <button class="edit-btn" data-prompt="grayscale filter">⚪ Ч/Б</button>
+                        <button class="edit-btn" data-prompt="sepia effect">🟤 Сепия</button>
+                    </div>
+                </div>
+
+                <!-- Custom Prompt -->
+                <div class="custom-prompt">
+                    <h3>Кастомный промт:</h3>
+                    <textarea id="promptInput" placeholder="Опишите как отредактировать фото (на английском или русском)"></textarea>
+                    <button id="editButton" class="primary-btn">🚀 Применить редактирование</button>
+                </div>
+
+                <!-- Status -->
+                <div id="status" class="status"></div>
+            </div>
+
+            <!-- Download Section -->
+            <div class="section download-section" id="downloadSection" style="display: none;">
+                <h2>💾 Скачать результат</h2>
+                <a id="downloadBtn" href="#" download class="primary-btn">Скачать фото</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
